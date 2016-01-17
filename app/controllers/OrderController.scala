@@ -68,4 +68,19 @@ object OrderController extends Controller {
         BadRequest(Json.obj("status" -> "KO", "message" -> "Can't found specific order"))
       }
   }
+  
+  // ... add new coupon on existing order
+  def addCoupon(id: Long) = DBAction(parse.json) { 
+    implicit f =>
+      f.request.body.validate[Order].map { 
+        order =>
+          val is_order = orders.filter(_.id === id)
+          if (is_order.exists.run) {
+            orders.update(order)
+            Ok(toJson(order))
+          } else {
+            BadRequest(Json.obj("status" -> "KO", "message" -> "Can't found specific order"))
+          }
+      }.getOrElse(BadRequest("Invalid JSON format"))
+  }
 }

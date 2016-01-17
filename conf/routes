@@ -4,25 +4,30 @@
 
 # Product
 GET        /products                                    controllers.ProductController.getAll
-GET        /product/:id                                 controllers.ProductController.findById(id: Int)
+GET        /product/:id                                 controllers.ProductController.findById(id: Long)
 POST       /product                                     controllers.ProductController.create
-PUT        /product/:id                                 controllers.ProductController.update(id: Int)
-DELETE     /product/:id                                 controllers.ProductController.delete(id: Int)
+PUT        /product/:id                                 controllers.ProductController.update(id: Long)
+DELETE     /product/:id                                 controllers.ProductController.delete(id: Long)
 
 # Order
 GET        /orders                                      controllers.OrderController.getAll
-GET        /order/:id                                   controllers.OrderController.findById(id: Int)
+GET        /order/:id                                   controllers.OrderController.findById(id: Long)
 POST       /order                                       controllers.OrderController.create
-PUT        /order/:id                                   controllers.OrderController.update(id: Int)
-DELETE     /order/:id                                   controllers.OrderController.delete(id: Int)
-#GET        /orderTotal                      controllers.OrderController.delete(id: Int)
+PUT        /order/:id                                   controllers.OrderController.update(id: Long)
+DELETE     /order/:id                                   controllers.OrderController.delete(id: Long)
+PUT        /order/:id/addCoupon                         controllers.OrderController.addCoupon(id: Long)
+
+# Coupon
+GET        /coupons                                      controllers.CouponController.getAll
+GET        /coupon/:id                                   controllers.CouponController.findById(id: Long)
+POST       /coupon                                       controllers.CouponController.create
+PUT        /coupon/:id                                   controllers.CouponController.update(id: Long)
+DELETE     /coupon/:id                                   controllers.CouponController.delete(id: Long)
 
 # Cart
-GET        /order/:orderId/products                     controllers.CartController.getAll(orderId: Int)
-GET        /order/:orderId/products/:productId          controllers.CartController.findById(orderId: Int, productId: Int)
-POST       /order/:orderId/addProduct                   controllers.CartController.create(orderId: Int)
-PUT        /order/:orderId/updateProduct/:productId     controllers.CartController.update(orderId: Int, productId: Int)
-DELETE     /order/:orderId/deleteProduct/:productId     controllers.CartController.delete(orderId: Int, productId: Int)
+GET        /order/:orderId/products                     controllers.CartController.getAll(orderId: Long)
+GET        /order/:orderId/products/:productId          controllers.CartController.findById(orderId: Long, productId: Long)
+POST       /order/:orderId/addProduct                   controllers.CartController.create(orderId: Long)
+PUT        /order/:orderId/updateProduct/:productId     controllers.CartController.update(orderId: Long, productId: Long)
+DELETE     /order/:orderId/deleteProduct/:productId     controllers.CartController.delete(orderId: Long, productId: Long)
 
-# Map static resources from the /public folder to the /assets URL path
-# GET     /assets/*file               controllers.Assets.versioned(path="/public", file)
