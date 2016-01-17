@@ -16,7 +16,6 @@ POST       /order                                       controllers.OrderControl
 PUT        /order/:id                                   controllers.OrderController.update(id: Long)
 DELETE     /order/:id                                   controllers.OrderController.delete(id: Long)
 PUT        /order/:id/addCoupon                         controllers.OrderController.addCoupon(id: Long)
-#GET       /orderTotal                                  controllers.OrderController.delete(id: Long)
 
 # Coupon
 GET        /coupons                                      controllers.CouponController.getAll
