@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~~
+
+# Product
+GET        /products                                    controllers.ProductController.getAll
+GET        /product/:id                                 controllers.ProductController.findById(id: Int)
+POST       /product                                     controllers.ProductController.create
+PUT        /product/:id                                 controllers.ProductController.update(id: Int)
+DELETE     /product/:id                                 controllers.ProductController.delete(id: Int)
+
+# Order
+GET        /orders                                      controllers.OrderController.getAll
+GET        /order/:id                                   controllers.OrderController.findById(id: Int)
+POST       /order                                       controllers.OrderController.create
+PUT        /order/:id                                   controllers.OrderController.update(id: Int)
+DELETE     /order/:id                                   controllers.OrderController.delete(id: Int)
+#GET        /orderTotal                      controllers.OrderController.delete(id: Int)
+
+# Cart
+GET        /order/:orderId/products                     controllers.CartController.getAll(orderId: Int)
+GET        /order/:orderId/products/:productId          controllers.CartController.findById(orderId: Int, productId: Int)
+POST       /order/:orderId/addProduct                   controllers.CartController.create(orderId: Int)
+PUT        /order/:orderId/updateProduct/:productId     controllers.CartController.update(orderId: Int, productId: Int)
+DELETE     /order/:orderId/deleteProduct/:productId     controllers.CartController.delete(orderId: Int, productId: Int)
+
+# Map static resources from the /public folder to the /assets URL path
+# GET     /assets/*file               controllers.Assets.versioned(path="/public", file)
